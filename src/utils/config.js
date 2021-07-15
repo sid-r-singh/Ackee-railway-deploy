@@ -9,15 +9,15 @@ module.exports = new Proxy({}, {
 		const data = {
 			ttl: process.env.ACKEE_TTL || day,
 			port: process.env.ACKEE_PORT || process.env.PORT || 3000,
-			dbUrl: process.env.ACKEE_MONGODB || process.env.MONGODB_URI || process.env.MONGO_URL,
+			dbUrl: process.env.ACKEE_MONGODB || process.env.MONGODB_URI,
 			allowOrigin: process.env.ACKEE_ALLOW_ORIGIN,
 			username: process.env.ACKEE_USERNAME,
 			password: process.env.ACKEE_PASSWORD,
 			isDemoMode: process.env.ACKEE_DEMO === 'true',
 			isDevelopmentMode: process.env.NODE_ENV === 'development',
-			isPreBuildMode: process.env.BUILD_ENV === 'pre'
+			isPreBuildMode: process.env.BUILD_ENV === 'pre',
 		}
 
 		return data[prop]
-	}
+	},
 })
